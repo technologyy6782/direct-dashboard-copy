@@ -25,19 +25,35 @@ create or replace function auth.jwt() returns jsonb language sql stable as $$ se
 create table storage.buckets(id text primary key, name text, public boolean default false, created_at timestamptz default now(), updated_at timestamptz default now(), file_size_limit bigint, allowed_mime_types text[]);
 create table storage.objects(id uuid primary key default gen_random_uuid(), bucket_id text, name text, owner uuid, created_at timestamptz default now(), updated_at timestamptz default now(), last_accessed_at timestamptz, metadata jsonb, path_tokens text[]);
 create or replace function storage.foldername(name text) returns text[] language sql as $$ select string_to_array(name,'/') $$;
+create publication supabase_realtime;
 create schema if not exists cron; create schema if not exists net;
 `;
 await db.exec(pre);
 const files = fs.readdirSync(dir).filter(f=>f.endsWith('.sql')).sort();
+function split(sql){
+  const out=[]; let cur=''; let i=0; let tag=null;
+  while(i<sql.length){
+    const c=sql[i];
+    if(tag){ if(sql.startsWith(tag,i)){ cur+=tag; i+=tag.length; tag=null; continue; } cur+=c; i++; continue; }
+    if(c==='$'){ const m=/^\$[A-Za-z_0-9]*\$/.exec(sql.slice(i)); if(m){ tag=m[0]; cur+=tag; i+=tag.length; continue; } }
+    if(c==="'"){ let j=i+1; while(j<sql.length){ if(sql[j]==="'"){ if(sql[j+1]==="'"){j+=2;continue;} break;} j++; } cur+=sql.slice(i,j+1); i=j+1; continue; }
+    if(c==='-'&&sql[i+1]==='-'){ let j=sql.indexOf('\n',i); if(j<0)j=sql.length; cur+=sql.slice(i,j); i=j; continue; }
+    if(c===';'){ out.push(cur); cur=''; i++; continue; }
+    cur+=c; i++;
+  }
+  if(cur.trim())out.push(cur);
+  return out.map(x=>x.trim()).filter(x=>x.length);
+}
 const fails=[];
+let ok=0, bad=0;
 for(const f of files){
-  let sql = fs.readFileSync(path.join(dir,f),'utf8');
-  try { await db.exec(sql); }
-  catch(e){
-    // try statement by statement fallback
-    fails.push({f, err: String(e.message||e).slice(0,300)});
+  const sql = fs.readFileSync(path.join(dir,f),'utf8');
+  for(const st of split(sql)){
+    try { await db.exec(st); ok++; }
+    catch(e){ bad++; fails.push({f, st: st.slice(0,120), err: String(e.message||e).slice(0,200)}); }
   }
 }
+console.log('statements ok', ok, 'bad', bad);
 fs.writeFileSync('/tmp/replay/fails.json', JSON.stringify(fails,null,2));
 const r = await db.query(`select count(*)::int c from pg_tables where schemaname='public'`);
 console.log('tables:', r.rows[0].c, 'failed files:', fails.length, 'of', files.length);
