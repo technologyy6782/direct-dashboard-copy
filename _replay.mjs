@@ -1,7 +1,11 @@
 import { PGlite } from '@electric-sql/pglite';
+import { pgcrypto } from '@electric-sql/pglite/contrib/pgcrypto';
+import { uuid_ossp } from '@electric-sql/pglite/contrib/uuid_ossp';
+import { citext } from '@electric-sql/pglite/contrib/citext';
+import { pg_trgm } from '@electric-sql/pglite/contrib/pg_trgm';
 import fs from 'fs'; import path from 'path';
 const dir='/tmp/ref/supabase/migrations';
-const db = await PGlite.create();
+const db = await PGlite.create({ extensions: { pgcrypto, uuid_ossp, citext, pg_trgm } });
 const pre = `do $x$ begin
   begin create role anon; exception when others then null; end;
   begin create role authenticated; exception when others then null; end;
