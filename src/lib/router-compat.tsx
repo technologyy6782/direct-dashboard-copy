@@ -217,9 +217,6 @@ export function Routes({ children }: { children: React.ReactNode }) {
     }
   }
 
-  if (typeof window !== "undefined") {
-    document.documentElement.setAttribute("data-rc-match", `${pathname}|${matched?.props?.path}|${routes.length}`);
-  }
   return <>{matched?.props.element ?? null}</>;
 }
 
