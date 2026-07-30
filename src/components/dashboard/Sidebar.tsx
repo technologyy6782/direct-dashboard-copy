@@ -1,6 +1,6 @@
 import { Home, Compass, Layers, FolderOpen, Settings, LifeBuoy, LogOut, Sparkles, Calculator } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
-import logoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
+import logoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
 import type { RoleConfig } from "@/lib/roles";
 import { signOut } from "@/lib/auth-bridge";
 import { cn } from "@/lib/utils";

@@ -3,7 +3,7 @@ import {
   Camera, ImageIcon, ShieldCheck, Pencil, Crown, Layers, Briefcase, Trophy,
   Target as TargetIcon, Gauge, TrendingUp, RotateCcw, Trash2, Upload,
 } from "lucide-react";
-import defaultLogoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
+import defaultLogoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
 import defaultBannerAsset from "@/assets/softwarevala-banner-checker.jpg.asset.json";
 
 type ResellerProfile = {
