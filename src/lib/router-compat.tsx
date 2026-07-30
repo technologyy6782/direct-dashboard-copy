@@ -188,9 +188,22 @@ function scorePath(pattern: string, pathname: string): number {
   return splat ? score : score + 1;
 }
 
+function flattenRoutes(children: React.ReactNode): React.ReactElement<RouteProps>[] {
+  const out: React.ReactElement<RouteProps>[] = [];
+  React.Children.forEach(children, (child) => {
+    if (!React.isValidElement(child)) return;
+    if (child.type === React.Fragment) {
+      out.push(...flattenRoutes((child.props as { children?: React.ReactNode }).children));
+      return;
+    }
+    out.push(child as React.ReactElement<RouteProps>);
+  });
+  return out;
+}
+
 export function Routes({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
-  const routes = React.Children.toArray(children).filter(React.isValidElement) as React.ReactElement<RouteProps>[];
+  const routes = flattenRoutes(children);
 
   let matched: React.ReactElement<RouteProps> | undefined;
   let best = -1;
