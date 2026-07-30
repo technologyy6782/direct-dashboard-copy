@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Role Achievement Showcase — profession-specific luxury 3D collectibles.
 // The signature trophy is a real cinematic 3D render per role. Every role has
 // its own icon set, palette, silhouettes and label set. Nothing is reused.

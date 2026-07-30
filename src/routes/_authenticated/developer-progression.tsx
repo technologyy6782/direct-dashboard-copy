@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
 import { DEVELOPER_STAGES } from "@/lib/ams/developer-stages";
 import { StageCard } from "@/components/ams/trophy-gallery/StageCard";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { Volume2, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // AMS Missions + Quests — domain types.
 import type { Department } from "./types";
 

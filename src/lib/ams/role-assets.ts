@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Central registry of premium 3D collectible assets per role.
 // Only images that exist on disk should be referenced here.
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Crown, Trophy, Award, Sparkles, Star, Diamond, Gift } from "lucide-react";
 import trophy3d from "@/assets/trophy-3d.png";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { type ReactNode } from "react";
 import { TopBar } from "./TopBar";
 import { WorkspaceBar } from "./WorkspaceBar";

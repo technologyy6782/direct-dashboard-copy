@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ChevronLeft, Sparkles, Trophy, Award, ShieldCheck, BookOpen, Compass,

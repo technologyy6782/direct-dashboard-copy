@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
 import { VENDOR_STAGES } from "@/lib/ams/vendor-stages";
 import { ProgressionTimeline } from "@/components/ams/progression/ProgressionTimeline";

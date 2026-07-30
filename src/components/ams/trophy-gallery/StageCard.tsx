@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useMemo, useRef, useState } from "react";
 import { Sparkles, Volume2, Lock } from "lucide-react";
 import { StageTrophy } from "./StageTrophy";

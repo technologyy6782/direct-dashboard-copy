@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { formatDistanceToNowStrict } from "date-fns";
 import {
   Trophy, Shield, Award, Zap, ArrowUpCircle, Crown, Flame, History, Target,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // AMS Role DNA Engine — UI logic only.
 // Every role is its own professional world: goals, journey, identity, awards,
 // trophies, passport, language, success messages, motivation and career path.

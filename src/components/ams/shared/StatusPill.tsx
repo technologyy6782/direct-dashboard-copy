@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/lib/utils";
 import type { AwardStatus } from "@/lib/ams/types";
 

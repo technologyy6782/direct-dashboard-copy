@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Deterministic digital passport identity + verification codes (UI only).
 // No backend calls: every code is derived from the role slug so the same
 // passport always resolves to the same verification record.

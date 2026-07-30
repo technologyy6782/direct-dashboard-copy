@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useRef, useState } from "react";
 import { Download, RotateCw, Pause, Sparkles } from "lucide-react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";

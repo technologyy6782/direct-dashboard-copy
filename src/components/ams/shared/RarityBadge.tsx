@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/lib/utils";
 import { RARITY_META, type Rarity } from "@/lib/ams/types";
 

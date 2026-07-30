@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useMemo, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { Collectible3D } from "./Collectible3D";

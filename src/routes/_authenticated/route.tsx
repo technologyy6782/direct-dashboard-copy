@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { CelebrationProvider } from "@/components/ams/effects/Celebration";

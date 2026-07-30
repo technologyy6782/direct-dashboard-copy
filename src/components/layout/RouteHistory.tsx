@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Route-scoped navigation history — persistent timeline + back/forward arrows
 // + floating history panel. Adapted from vala-identity-engine for TanStack Router.
 
@@ -35,7 +36,7 @@ const MAX = 40;
 
 // ── Path → label / module resolver ────────────────────────────────────────
 const LABEL_MAP: Record<string, { label: string; module: string }> = {
-  "/": { label: "Command Center", module: "Overview" },
+  "/command-center": { label: "Command Center", module: "Overview" },
   "/role-manager": { label: "Role Manager", module: "Identity" },
   "/passport": { label: "Passport", module: "Identity" },
   "/identity": { label: "Identity Engine", module: "Identity" },

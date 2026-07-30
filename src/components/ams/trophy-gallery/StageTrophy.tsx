@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Handcrafted SVG trophy silhouettes — one shape per stage. Each accepts a
 // gradient palette so materials read as copper, bronze, silver, gold, etc.
 

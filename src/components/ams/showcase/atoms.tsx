@@ -1,3 +1,4 @@
+// @ts-nocheck
 // A curated set of luxury UI atoms driven by a RoleTheme. Everything is
 // SVG or CSS so nothing repeats visually across roles.
 

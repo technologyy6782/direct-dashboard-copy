@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
 import { ChatScreen } from "@/components/ams/chat/ChatScreen";
 

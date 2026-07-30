@@ -21,7 +21,7 @@ type NavItem = { to: string; label: string; icon: React.ComponentType<{ classNam
 // No secondary sidebar. No nested navigation. This is the ONLY navigation
 // surface inside the AMS Manager module.
 const AMS_NAV: NavItem[] = [
-  { to: "/",              label: "Overview",      icon: LayoutDashboard },
+  { to: "/command-center",              label: "Overview",      icon: LayoutDashboard },
   { to: "/role-manager",  label: "Role Manager",  icon: UsersRound },
   { to: "/passport",      label: "Passport",      icon: BookMarked },
   { to: "/identity",      label: "Identity",      icon: Fingerprint },
@@ -63,7 +63,7 @@ export function TopBar() {
     <header className="sticky top-0 z-30 border-b border-border bg-background/85 backdrop-blur-xl">
       {/* Row 1 — brand + search + actions */}
       <div className="h-14 flex items-center gap-3 px-5">
-        <Link to="/" className="flex items-center gap-2.5 shrink-0">
+        <Link to="/command-center" className="flex items-center gap-2.5 shrink-0">
           <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-trophy to-legendary flex items-center justify-center shadow-[0_0_20px_-4px_oklch(0.82_0.17_85/60%)]">
             <Trophy className="h-4.5 w-4.5 text-background" />
           </div>

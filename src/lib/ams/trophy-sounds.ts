@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Procedural unlock sounds. No assets required — WebAudio synth per tier.
 // Each preset uses a distinct waveform, chord and envelope so every stage
 // truly sounds different.

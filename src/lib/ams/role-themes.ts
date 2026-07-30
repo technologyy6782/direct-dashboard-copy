@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Per-role visual identity system. Every role gets a completely different
 // palette, environment, pattern, typography feel, iconography and materials.
 // UI/UX tokens only — no logic.

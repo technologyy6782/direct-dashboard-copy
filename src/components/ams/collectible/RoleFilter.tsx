@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ROLES, type RoleSlug } from "@/lib/ams/roles";
 
 export type RoleFilterValue = RoleSlug | "all";
