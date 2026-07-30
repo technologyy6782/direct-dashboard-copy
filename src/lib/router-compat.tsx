@@ -168,25 +168,41 @@ export function Route(_props: RouteProps): React.ReactElement | null {
   return null;
 }
 
-function matchPath(pattern: string, pathname: string): boolean {
-  if (pattern === "*") return true;
+/** Score a v6-style path pattern against a pathname. -1 = no match; higher = more specific. */
+function scorePath(pattern: string, pathname: string): number {
+  if (pattern === "*") return 0;
   const patternParts = pattern.replace(/^\//, "").split("/").filter(Boolean);
   const pathParts = pathname.replace(/^\//, "").split("/").filter(Boolean);
-  const tail = pathParts.slice(Math.max(0, pathParts.length - patternParts.length));
-  if (patternParts.length !== tail.length) return false;
-  return patternParts.every((part, i) => part.startsWith(":") || part === "*" || part === tail[i]);
+  const splat = patternParts[patternParts.length - 1] === "*";
+  const fixed = splat ? patternParts.slice(0, -1) : patternParts;
+
+  if (splat ? pathParts.length < fixed.length : pathParts.length !== fixed.length) return -1;
+
+  let score = 0;
+  for (let i = 0; i < fixed.length; i += 1) {
+    const part = fixed[i];
+    if (part.startsWith(":")) score += 2;
+    else if (part === pathParts[i]) score += 3;
+    else return -1;
+  }
+  return splat ? score : score + 1;
 }
 
 export function Routes({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
   const routes = React.Children.toArray(children).filter(React.isValidElement) as React.ReactElement<RouteProps>[];
 
-  const indexRoute = routes.find((r) => r.props.index);
-  const matched =
-    routes.find((r) => r.props.path && r.props.path !== "*" && matchPath(r.props.path, pathname)) ??
-    (pathname.split("/").filter(Boolean).length === 0 ? indexRoute : undefined) ??
-    routes.find((r) => r.props.path === "*") ??
-    indexRoute;
+  let matched: React.ReactElement<RouteProps> | undefined;
+  let best = -1;
+  for (const route of routes) {
+    const pattern = route.props.index ? "/" : route.props.path;
+    if (!pattern) continue;
+    const score = scorePath(pattern, pathname);
+    if (score > best) {
+      best = score;
+      matched = route;
+    }
+  }
 
   return <>{matched?.props.element ?? null}</>;
 }
