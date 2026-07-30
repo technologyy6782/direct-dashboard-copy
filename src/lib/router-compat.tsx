@@ -218,7 +218,7 @@ export function Routes({ children }: { children: React.ReactNode }) {
   }
 
   if (typeof window !== "undefined") {
-    console.log("[router-compat] match", pathname, matched?.props?.path, routes.length);
+    document.title = `M:${pathname}|${matched?.props?.path}|${routes.length}`;
   }
   return <>{matched?.props.element ?? null}</>;
 }
