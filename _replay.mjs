@@ -3,7 +3,7 @@ import fs from 'fs'; import path from 'path';
 const dir='/tmp/ref/supabase/migrations';
 const db = await PGlite.create();
 const pre = `
-create role anon; create role authenticated; create role service_role; create role supabase_auth_admin; create role postgres superuser;
+do $x$ begin create role anon; exception when others then null; end $x$; create role authenticated; create role service_role; create role supabase_auth_admin; create role postgres superuser;
 create schema if not exists auth; create schema if not exists storage; create schema if not exists extensions; create schema if not exists graphql_public; create schema if not exists realtime; create schema if not exists vault;
 create extension if not exists pgcrypto;
 create table auth.users(id uuid primary key default gen_random_uuid(), email text, raw_user_meta_data jsonb, raw_app_meta_data jsonb, encrypted_password text, created_at timestamptz default now(), updated_at timestamptz default now(), email_confirmed_at timestamptz, last_sign_in_at timestamptz, phone text, confirmed_at timestamptz, banned_until timestamptz, deleted_at timestamptz);
