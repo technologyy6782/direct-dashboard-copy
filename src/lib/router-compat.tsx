@@ -29,7 +29,7 @@ export function useLocation() {
     pathname: location.pathname,
     search: location.searchStr ?? "",
     hash: location.hash ? `#${location.hash}` : "",
-    state: (location.state ?? {}) as Record<string, unknown>,
+    state: (location.state ?? {}) as unknown as Record<string, unknown>,
     key: location.href,
   };
 }
