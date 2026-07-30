@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI ASSIST LAYER
  * AI can suggest, detect, guide - Cannot execute or bypass

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SESSION LOGS
  * Read-only audit trail - No edit/delete

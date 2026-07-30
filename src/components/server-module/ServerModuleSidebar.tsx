@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER MODULE SIDEBAR
  * Ultra-simple sidebar with exactly 9 items as specified

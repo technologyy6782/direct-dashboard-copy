@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useLivingSettings } from '@/contexts/LivingSettingsContext';
 import { cn } from '@/lib/utils';

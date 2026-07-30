@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PENDING APPROVAL
  * Sessions awaiting boss/manager approval

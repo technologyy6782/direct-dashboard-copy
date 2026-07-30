@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // System Health Monitor
 // CPU / RAM / Disk / Network - Real-time

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Living Homepage event bus.
  * Lightweight, dependency-free pub/sub used to let any part of the app

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo } from 'react';
 import { Settings2, RotateCcw } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';

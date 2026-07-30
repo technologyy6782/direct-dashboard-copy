@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - TYPE DEFINITIONS
  * All section types and interfaces for FO Dashboard

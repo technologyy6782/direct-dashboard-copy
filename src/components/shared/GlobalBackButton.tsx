@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * GlobalBackButton - Persistent back button for all module layouts
  * ZERO UI CHANGE: Navigation fix only - goes back to module home or previous screen

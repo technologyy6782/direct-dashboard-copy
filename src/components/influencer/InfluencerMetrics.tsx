@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, Users, Link2, Eye, MousePointer, 

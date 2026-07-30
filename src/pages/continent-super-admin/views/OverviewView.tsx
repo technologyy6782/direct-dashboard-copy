@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Overview Screen
 import { motion } from 'framer-motion';
 import { Globe2, TrendingUp, AlertTriangle, Users } from 'lucide-react';

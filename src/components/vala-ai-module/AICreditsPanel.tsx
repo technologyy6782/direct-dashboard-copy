@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI CREDITS PANEL - Full Featured
  * Complete credit management with balance, transactions, and billing

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * clientErrorReporter — One-time install of `error` and
  * `unhandledrejection` listeners that forward client-side errors

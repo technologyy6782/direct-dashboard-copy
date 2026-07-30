@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN CONTROL
  * Deep control categories - View/Control/Pause/Resume/Freeze

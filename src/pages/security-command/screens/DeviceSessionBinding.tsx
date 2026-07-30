@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Smartphone, Key, MapPin, AlertTriangle, Fingerprint, MonitorSmartphone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

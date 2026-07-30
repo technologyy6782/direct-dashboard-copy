@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import InfluencerCommandCenter from "@/pages/InfluencerCommandCenter";

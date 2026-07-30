@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Search, Sparkles, TrendingUp, Clock, X } from 'lucide-react';

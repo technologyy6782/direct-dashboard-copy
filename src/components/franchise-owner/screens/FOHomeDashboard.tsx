@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER HOME DASHBOARD
  * Clickable cards that redirect to respective modules

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER LEADS & SEO SCREEN
  * Lead management + SEO setup

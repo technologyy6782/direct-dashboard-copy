@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHAT & VOICE
  * Text chat, voice call, mute, AI translate

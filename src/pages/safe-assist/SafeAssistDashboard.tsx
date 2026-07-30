@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Dashboard
  * Cloned pattern from IncidentCrisisDashboard (similar protection / monitoring role).

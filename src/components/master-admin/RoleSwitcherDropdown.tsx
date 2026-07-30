@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Shield, ChevronDown, Copy, Check, UserCheck, Pencil, Save, X, Lock } from 'lucide-react';

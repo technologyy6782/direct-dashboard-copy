@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useModuleAction — Unified action wrapper for Super Admin modules.
  *

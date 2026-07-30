@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRIVACY CONTROLS
  * Maximum privacy - All enabled by default

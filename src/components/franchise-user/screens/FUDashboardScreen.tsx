@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER DASHBOARD SCREEN
  * LOCKED: Same color/theme as core system

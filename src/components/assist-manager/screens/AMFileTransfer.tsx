@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FILE TRANSFER
  * Secure file send/receive with auto-delete

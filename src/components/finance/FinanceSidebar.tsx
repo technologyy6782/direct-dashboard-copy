@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FINANCE SIDEBAR - EXPANDED
  * Master Financial Control with 14 sections

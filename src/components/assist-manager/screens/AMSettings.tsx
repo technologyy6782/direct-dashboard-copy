@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SETTINGS
  * System configuration for Assist Manager

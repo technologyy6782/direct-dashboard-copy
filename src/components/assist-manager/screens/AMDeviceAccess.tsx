@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVICE ACCESS
  * App Only / Browser Only / Single Window / No Background

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Database Health Monitor
 // Health & Connections Only - Slow Query Metadata

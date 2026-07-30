@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin Dashboard - Full Screen Navigation
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';

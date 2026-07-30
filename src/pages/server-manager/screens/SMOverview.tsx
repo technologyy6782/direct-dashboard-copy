@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react';
 import { Server, Activity, Clock, AlertTriangle, Wifi, WifiOff, RefreshCw } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';

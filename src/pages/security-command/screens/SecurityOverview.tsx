@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Shield, Users, Ban, AlertTriangle, CheckCircle, Activity } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

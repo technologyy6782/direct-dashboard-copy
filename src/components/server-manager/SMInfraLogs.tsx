@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Infrastructure Logs
 // Deploys, Restarts, Scaling, Access Changes

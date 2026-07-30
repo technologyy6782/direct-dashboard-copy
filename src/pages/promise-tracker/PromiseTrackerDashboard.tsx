@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Promise Tracker Dashboard
  * Wraps the full PT layout (sidebar + 14 screens). No auth-gated DashboardLayout

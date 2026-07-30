@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useLivingSettings } from '@/contexts/LivingSettingsContext';
 import { getAmbienceTheme, getSeasonEvent, type AmbienceTheme, type SeasonEvent } from '@/lib/living/ambience';

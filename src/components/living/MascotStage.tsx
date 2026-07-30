@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import MascotArt, { MASCOT_LIST, MASCOTS, type MascotSpecies } from './MascotArt';

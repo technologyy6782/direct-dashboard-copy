@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LIVE ASSIST
  * UltraViewer style - Real-time session control

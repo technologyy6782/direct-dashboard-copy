@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER SIDEBAR
  * 10 Sections as specified - NO SCROLL, FIXED

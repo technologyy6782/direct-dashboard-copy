@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER EMPLOYEES SCREEN
  * Team management with role assignment

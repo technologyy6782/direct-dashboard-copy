@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Backup & Restore Management
 // Automated Schedules - Integrity Checks

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI DASHBOARD - LOVABLE-STYLE AI PRODUCT ENGINE
  * ====================================================

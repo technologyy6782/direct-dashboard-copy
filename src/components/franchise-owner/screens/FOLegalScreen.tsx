@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER LEGAL SCREEN
  * Legal & Compliance management

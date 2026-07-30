@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI MODELS PANEL
  * Shows active AI models

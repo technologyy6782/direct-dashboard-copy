@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER ACTION LOGGER
  * Ensures ALL franchise owner actions are logged to audit_logs

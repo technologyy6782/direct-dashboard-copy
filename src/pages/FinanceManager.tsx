@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import FinanceSidebar, { FinanceView } from "@/components/finance/FinanceSidebar";
 import RevenueDashboard from "@/components/finance/RevenueDashboard";

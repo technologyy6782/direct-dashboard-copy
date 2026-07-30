@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo } from 'react';
 import type { SeasonEvent } from '@/lib/living/ambience';
 

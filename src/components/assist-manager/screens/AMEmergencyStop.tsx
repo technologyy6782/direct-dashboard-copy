@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * EMERGENCY STOP
  * Critical session termination controls

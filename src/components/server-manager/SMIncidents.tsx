@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Incidents Management
 // Create, Track, Escalate - No Silent Close

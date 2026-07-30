@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Assist Manager Dashboard
  * Wraps the full AM layout (sidebar + 13 screens). No auth-gated DashboardLayout

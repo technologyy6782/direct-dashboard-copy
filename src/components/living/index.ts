@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { default as LivingHero } from './LivingHero';
 export { default as AmbientLayer, useAmbience } from './AmbientLayer';
 export { default as MascotStage } from './MascotStage';

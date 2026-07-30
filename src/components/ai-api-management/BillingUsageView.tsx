@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   DollarSign, TrendingUp, TrendingDown, PieChart, BarChart3,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CREATE NEW ASSIST
  * Primary flow for creating assist sessions

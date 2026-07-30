@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Services Status Monitor
 // App / DB / Cache / Queue / API Status

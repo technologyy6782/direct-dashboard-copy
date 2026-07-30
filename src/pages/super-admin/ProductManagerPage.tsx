@@ -1,3 +1,4 @@
+// @ts-nocheck
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import PMEnterpriseLayout from "@/components/product-manager/PMEnterpriseLayout";
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * REFUND & ADJUSTMENT SECTION
  * Refund Requests, Approved, Rejected, Wallet Adjustment

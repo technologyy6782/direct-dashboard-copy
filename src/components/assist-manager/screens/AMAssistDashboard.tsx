@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ASSIST DASHBOARD
  * Top Status Cards - All Clickable

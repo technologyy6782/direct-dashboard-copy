@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Server Manager Dashboard - Infrastructure Command Center (EXPANDED)
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

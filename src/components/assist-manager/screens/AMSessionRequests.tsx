@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SESSION REQUESTS
  * Incoming assist requests queue

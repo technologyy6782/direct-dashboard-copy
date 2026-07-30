@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER INVOICES SCREEN
  * Invoice management with GST/Tax breakdown

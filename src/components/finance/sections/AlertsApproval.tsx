@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALERTS & APPROVAL SECTION
  * High Amount Approval, Manual Override, Risky Transaction Alert

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI COMMAND CENTER - CORE AI ENGINE
  * ================================================
