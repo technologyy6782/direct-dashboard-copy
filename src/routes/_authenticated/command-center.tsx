@@ -12,7 +12,7 @@ import { RoleAchievementShowcase } from "@/components/ams/shared/RoleAchievement
 const dashOpts = (fn: () => Promise<any>) =>
   queryOptions({ queryKey: ["command-center"], queryFn: fn });
 
-export const Route = createFileRoute("/_authenticated/")({
+export const Route = createFileRoute("/_authenticated/command-center")({
   head: () => ({
     meta: [
       { title: "Command Center — AMS" },
