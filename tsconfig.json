@@ -46,8 +46,8 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "strict": true,
     /* Merged reference modules were authored under a loose TS config. */
-    "strict": false,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
