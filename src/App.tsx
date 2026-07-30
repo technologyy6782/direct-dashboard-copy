@@ -59,7 +59,7 @@ import DemoLogin from "./pages/DemoLogin";
 import DemoShowcase from "./pages/DemoShowcase";
 import PremiumDemoShowcase from "./pages/PremiumDemoShowcase";
 import PremiumDemoShowcaseNew from "./pages/showcase/PremiumDemoShowcase";
-import ServerManagementPortal from "./pages/server/ServerManagementPortal";
+import ServerManagementPortal from "./pages/server-portal-pages/ServerManagementPortal";
 import ClientPortal from "./pages/ClientPortal";
 
 // Demo Product Pages - One-click access, no login
