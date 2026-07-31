@@ -405,9 +405,9 @@ const FinanceSidebar = ({ activeView, onViewChange, onBack }: FinanceSidebarProp
   };
 
   return (
-    <aside className="w-72 flex flex-col h-screen sticky top-0 left-0 z-40" style={{ background: 'linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)', borderRight: '1px solid #1e3a5f' }}>
+    <aside className="w-72 flex flex-col h-screen sticky top-0 left-0 z-40" style={{ background: 'linear-gradient(180deg, var(--sidebar) 0%, var(--sidebar) 100%)', borderRight: '1px solid var(--border)' }}>
       {/* Back Button */}
-      <div className="p-2 flex-shrink-0" style={{ borderBottom: '1px solid #1e3a5f' }}>
+      <div className="p-2 flex-shrink-0" style={{ borderBottom: '1px solid var(--border)' }}>
         <motion.button
           onClick={handleBack}
           whileHover={{ x: -2 }}
@@ -421,7 +421,7 @@ const FinanceSidebar = ({ activeView, onViewChange, onBack }: FinanceSidebarProp
       </div>
       
       {/* Logo */}
-      <div className="p-4 flex-shrink-0 flex justify-center" style={{ borderBottom: '1px solid #1e3a5f' }}>
+      <div className="p-4 flex-shrink-0 flex justify-center" style={{ borderBottom: '1px solid var(--border)' }}>
         <img 
           src={softwareValaLogo} 
           alt="Software Vala Logo" 
@@ -430,11 +430,11 @@ const FinanceSidebar = ({ activeView, onViewChange, onBack }: FinanceSidebarProp
       </div>
 
       {/* User Info */}
-      <div className="p-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e3a5f' }}>
+      <div className="p-3 flex-shrink-0" style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="rounded-lg p-2" style={{ background: 'rgba(30, 58, 95, 0.3)' }}>
           <div className="flex items-center justify-between mb-1">
             <span className="text-xs font-medium truncate" style={{ color: '#ffffff' }}>{userName}</span>
-            <Badge variant="outline" className="text-[9px] px-1.5" style={{ borderColor: '#1e3a5f', color: 'rgba(255, 255, 255, 0.7)' }}>
+            <Badge variant="outline" className="text-[9px] px-1.5" style={{ borderColor: 'var(--border)', color: 'rgba(255, 255, 255, 0.7)' }}>
               FINANCE
             </Badge>
           </div>
@@ -516,7 +516,7 @@ const FinanceSidebar = ({ activeView, onViewChange, onBack }: FinanceSidebarProp
       </ScrollArea>
 
       {/* Gateway Status */}
-      <div className="p-3 flex-shrink-0" style={{ borderTop: '1px solid #1e3a5f' }}>
+      <div className="p-3 flex-shrink-0" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="rounded-lg p-2" style={{ background: 'rgba(30, 58, 95, 0.3)' }}>
           <p className="text-[10px] font-medium mb-1.5" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Payment Gateways</p>
           <div className="grid grid-cols-2 gap-1">

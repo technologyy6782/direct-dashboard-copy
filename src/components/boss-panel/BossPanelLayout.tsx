@@ -24,7 +24,7 @@ interface BossPanelLayoutProps {
   children?: React.ReactNode;
 }
 
-// LOCKED: Background #0B0F1A, text #FFFFFF
+// LOCKED: Background var(--background), text #FFFFFF
 export function BossPanelLayout({ children }: BossPanelLayoutProps) {
   const [activeSection, setActiveSection] = useState<BossPanelSection>('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);

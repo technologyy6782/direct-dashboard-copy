@@ -43,7 +43,7 @@ export const LeadModuleContainer: React.FC<LeadModuleContainerProps> = ({
   };
 
   return (
-    <div className="flex min-h-screen w-full" style={{ background: '#0B0F1A' }}>
+    <div className="flex min-h-screen w-full" style={{ background: 'var(--background)' }}>
       <LeadModuleSidebar 
         activeSection={activeSection} 
         onSectionChange={setActiveSection}

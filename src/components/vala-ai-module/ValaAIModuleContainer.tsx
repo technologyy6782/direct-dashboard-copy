@@ -48,7 +48,7 @@ export const ValaAIModuleContainer: React.FC<ValaAIModuleContainerProps> = ({
   };
 
   return (
-    <div className="flex min-h-screen w-full" style={{ background: '#0B0F1A' }}>
+    <div className="flex min-h-screen w-full" style={{ background: 'var(--background)' }}>
       <ValaAISidebar 
         activeSection={activeSection}
         onSectionChange={setActiveSection}

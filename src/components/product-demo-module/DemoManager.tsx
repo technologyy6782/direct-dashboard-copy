@@ -28,9 +28,9 @@ import {
 
 // ===== LOCKED THEME COLORS =====
 const THEME = {
-  bg: '#0a1628',
+  bg: 'var(--sidebar)',
   cardBg: 'rgba(13, 27, 42, 0.95)',
-  border: '#1e3a5f',
+  border: 'var(--border)',
   accent: '#2563eb',
   text: '#e2e8f0',
   textMuted: '#94a3b8',

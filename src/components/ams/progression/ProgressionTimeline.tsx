@@ -126,7 +126,7 @@ export function ProgressionTimeline({
                       background: isUnlocked
                         ? `linear-gradient(135deg, ${s.bg.accent}, ${s.ribbon[1]})`
                         : "rgba(255,255,255,0.04)",
-                      color: isUnlocked ? "#0b0f1a" : `${s.bg.accent}bb`,
+                      color: isUnlocked ? "var(--background)" : `${s.bg.accent}bb`,
                       border: `1px solid ${s.bg.accent}66`,
                       boxShadow: isSelected ? `0 0 18px -2px ${s.bg.glow}` : undefined,
                     }}
@@ -173,7 +173,7 @@ export function ProgressionTimeline({
                 className="inline-flex items-center gap-1.5 rounded-md px-4 py-1.5 text-xs font-semibold transition hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{
                   background: `linear-gradient(135deg, ${stage.bg.accent}, ${rTo})`,
-                  color: "#0b0f1a",
+                  color: "var(--background)",
                   boxShadow: `0 0 22px -6px ${stage.bg.glow}`,
                 }}
               >

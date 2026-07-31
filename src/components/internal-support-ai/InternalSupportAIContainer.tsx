@@ -53,7 +53,7 @@ export const InternalSupportAIContainer: React.FC<InternalSupportAIContainerProp
   return (
     <div 
       className="min-h-screen w-full flex"
-      style={{ background: 'linear-gradient(135deg, #0B0F1A 0%, #0F172A 50%, #0B1628 100%)' }}
+      style={{ background: 'linear-gradient(135deg, var(--background) 0%, var(--background) 50%, #0B1628 100%)' }}
       onContextMenu={(e) => e.preventDefault()}
       onCopy={(e) => e.preventDefault()}
       onCut={(e) => e.preventDefault()}

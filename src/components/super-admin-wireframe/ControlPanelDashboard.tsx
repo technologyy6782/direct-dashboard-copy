@@ -40,9 +40,9 @@ import {
 
 // ===== LOCKED COLORS (DO NOT CHANGE) =====
 const COLORS = {
-  bg: '#0a1628',
+  bg: 'var(--sidebar)',
   cardBg: '#0f1d2f',
-  cardBorder: '#1e3a5f',
+  cardBorder: 'var(--border)',
   cardBorderHover: '#2563eb',
   text: '#ffffff',
   textMuted: 'rgba(255, 255, 255, 0.6)',

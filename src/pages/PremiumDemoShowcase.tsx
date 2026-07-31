@@ -314,7 +314,7 @@ export default function PremiumDemoShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--sidebar)] via-[#0d1e36] to-[var(--sidebar)]">
       {/* Header */}
       <header className="bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 py-3 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -468,7 +468,7 @@ export default function PremiumDemoShowcase() {
       </main>
 
       {/* Copyright & Trademark Footer */}
-      <footer className="bg-[#0a1628] border-t border-cyan-500/20 py-8 mt-12">
+      <footer className="bg-[var(--sidebar)] border-t border-cyan-500/20 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
             <div className="flex items-center gap-3">

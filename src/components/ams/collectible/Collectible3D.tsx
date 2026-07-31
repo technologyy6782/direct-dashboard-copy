@@ -239,7 +239,7 @@ export function Collectible3D({
           className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[11px] font-semibold transition hover:brightness-110"
           style={{
             background: `linear-gradient(135deg, ${accent}, ${accent}aa)`,
-            color: "#0b0f1a",
+            color: "var(--background)",
             boxShadow: `0 0 22px -6px ${accent}`,
           }}
         >

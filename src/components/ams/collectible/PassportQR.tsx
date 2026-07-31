@@ -81,7 +81,7 @@ export function PassportQR({ role, size = 132 }: { role: RoleDNA; size?: number 
             to="/verify/$code"
             params={{ code: identity.code }}
             className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[10px] font-semibold"
-            style={{ background: `linear-gradient(135deg, ${role.accent}, ${role.accent}aa)`, color: "#0b0f1a" }}
+            style={{ background: `linear-gradient(135deg, ${role.accent}, ${role.accent}aa)`, color: "var(--background)" }}
           >
             <ShieldCheck className="h-3 w-3" /> Verify
           </Link>

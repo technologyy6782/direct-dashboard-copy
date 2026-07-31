@@ -555,7 +555,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
       {/* ===== ROW 2: KEY STATS — 4 EQUAL LARGE CARDS WITH ACTIONS ===== */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         {/* REVENUE */}
-        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
+        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
           <div className="p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
@@ -576,7 +576,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
         </motion.div>
 
         {/* USERS */}
-        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
+        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
           <div className="p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
@@ -597,7 +597,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
         </motion.div>
 
         {/* FRANCHISES */}
-        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
+        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
           <div className="p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
@@ -618,7 +618,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
         </motion.div>
 
         {/* SYSTEM */}
-        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
+        <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
           <div className="p-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
@@ -759,7 +759,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
       </div>
 
       {/* ===== ROW 4: ACTIVITY & ALERTS — FULL WIDTH PANEL WITH ACTIONS ===== */}
-      <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
+      <motion.div whileHover={{ y: -2 }} style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}>
         <div className="px-4 py-3 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(37, 99, 235, 0.15)' }}>
           <div className="flex items-center gap-2">
             <Activity size={16} style={{ color: '#60a5fa' }} />
@@ -834,7 +834,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }}
         className="mt-6"
-        style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, #0a1628 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}
+        style={{ background: 'linear-gradient(180deg, #0d1a2d 0%, var(--sidebar) 100%)', border: '1px solid rgba(37, 99, 235, 0.2)', borderRadius: 8, overflow: 'hidden' }}
       >
         <div className="px-4 py-3 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(34, 197, 94, 0.2)' }}>
           <div className="flex items-center gap-2">

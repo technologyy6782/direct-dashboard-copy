@@ -41,10 +41,10 @@ type AppRole = Database['public']['Enums']['app_role'];
 // THEME COLORS (Dark Navy - Locked)
 // ============================================
 const THEME = {
-  bg: '#0a1628',
-  bgGradient: 'linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)',
+  bg: 'var(--sidebar)',
+  bgGradient: 'linear-gradient(180deg, var(--sidebar) 0%, var(--sidebar) 100%)',
   cardBg: 'rgba(13, 27, 42, 0.95)',
-  border: '#1e3a5f',
+  border: 'var(--border)',
   accent: '#2563eb',
   accentGlow: 'rgba(37, 99, 235, 0.3)',
   text: '#e2e8f0',

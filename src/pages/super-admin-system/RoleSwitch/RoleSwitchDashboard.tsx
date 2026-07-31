@@ -601,7 +601,7 @@ const RoleSwitchDashboard = () => {
       {/* TOP HEADER - Software Vala Enterprise Header */}
       <header className={cn(
         "h-16 backdrop-blur-xl border-b flex items-center justify-between px-6 z-50 transition-colors duration-300",
-        "bg-gradient-to-r from-[#0a1628] via-[#0d1b2a] to-[#0a1628] border-[#1e3a5f]",
+        "bg-gradient-to-r from-[var(--sidebar)] via-[var(--sidebar)] to-[var(--sidebar)] border-[var(--border)]",
         // Offset only when the Control Panel sidebar is actually visible (NOT during module view)
         isInControlPanelView && !isInModuleView && "ml-[320px]"
       )}>
