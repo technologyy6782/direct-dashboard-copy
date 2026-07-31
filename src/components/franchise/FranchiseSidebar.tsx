@@ -94,9 +94,9 @@ export const FranchiseSidebar = ({
   };
 
   return (
-    <aside className="w-64 flex flex-col h-full" style={{ background: 'linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)', borderRight: '1px solid #1e3a5f' }}>
+    <aside className="w-64 flex flex-col h-full" style={{ background: 'linear-gradient(180deg, var(--sidebar) 0%, var(--sidebar) 100%)', borderRight: '1px solid var(--border)' }}>
       {/* Back Button */}
-      <div className="p-2" style={{ borderBottom: '1px solid #1e3a5f' }}>
+      <div className="p-2" style={{ borderBottom: '1px solid var(--border)' }}>
         <motion.button
           onClick={handleBack}
           whileHover={{ x: -2 }}
@@ -110,7 +110,7 @@ export const FranchiseSidebar = ({
       </div>
       
       {/* Header */}
-      <div className="p-4" style={{ borderBottom: '1px solid #1e3a5f' }}>
+      <div className="p-4" style={{ borderBottom: '1px solid var(--border)' }}>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(37, 99, 235, 0.2)' }}>
             <MapPin className="w-5 h-5" style={{ color: '#60a5fa' }} />
@@ -154,7 +154,7 @@ export const FranchiseSidebar = ({
       </nav>
 
       {/* Performance Widget */}
-      <div className="mx-3 mb-3 p-3 rounded-xl" style={{ background: 'rgba(30, 58, 95, 0.3)', border: '1px solid #1e3a5f' }}>
+      <div className="mx-3 mb-3 p-3 rounded-xl" style={{ background: 'rgba(30, 58, 95, 0.3)', border: '1px solid var(--border)' }}>
         <div className="flex items-center gap-2 mb-2">
           <Star className="w-4 h-4 text-amber-500" />
           <span className="text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Performance</span>

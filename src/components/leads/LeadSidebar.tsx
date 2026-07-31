@@ -33,7 +33,7 @@ const LeadSidebar = ({ activeView, onViewChange }: LeadSidebarProps) => {
     <motion.aside 
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="fixed left-0 top-0 h-screen w-64 bg-[#0a1628] border-r border-border/30 flex flex-col z-50"
+      className="fixed left-0 top-0 h-screen w-64 bg-[var(--sidebar)] border-r border-border/30 flex flex-col z-50"
     >
       {/* Logo Section */}
       <div className="p-6 border-b border-border/30">

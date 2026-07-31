@@ -57,7 +57,7 @@ export const ServerModuleContainer: React.FC<ServerModuleContainerProps> = ({
   };
 
   return (
-    <div className="flex min-h-screen w-full" style={{ background: '#0B0F1A' }}>
+    <div className="flex min-h-screen w-full" style={{ background: 'var(--background)' }}>
       <ServerModuleSidebar 
         activeSection={activeSection}
         onSectionChange={setActiveSection}

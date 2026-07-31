@@ -2470,7 +2470,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--sidebar)] via-[#0d1e36] to-[var(--sidebar)]">
       {/* Premium Header */}
       <header className="bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 py-4 px-4 shadow-2xl">
         <div className="max-w-7xl mx-auto">
@@ -2637,7 +2637,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0a1628] border-t border-cyan-500/20 py-8 px-4">
+      <footer className="bg-[var(--sidebar)] border-t border-cyan-500/20 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">© 2024 Software Vala - The Name of Trust. All rights reserved.</p>
           <p className="text-cyan-400 mt-2">20 Master Categories • 147 Software Solutions • 20 Live Demos Ready</p>

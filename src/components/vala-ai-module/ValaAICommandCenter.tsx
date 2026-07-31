@@ -39,9 +39,9 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/vala-ai-chat
 
 // ===== LOCKED COLORS (DO NOT CHANGE) =====
 const COLORS = {
-  bg: '#0B0F1A',
-  bgSecondary: '#0d1b2a',
-  border: '#1e3a5f',
+  bg: 'var(--background)',
+  bgSecondary: 'var(--sidebar)',
+  border: 'var(--border)',
   accent: '#2563eb',
   success: '#10b981',
   error: '#ef4444',

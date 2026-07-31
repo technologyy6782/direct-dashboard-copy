@@ -72,9 +72,9 @@ export const LeadModuleSidebar: React.FC<LeadModuleSidebarProps> = ({
 
   // ===== LOCKED COLORS: Dark Navy Blue Sidebar (matches Control Panel) =====
   const SIDEBAR_COLORS = {
-    bg: '#0a1628',
-    bgGradient: 'linear-gradient(180deg, #0a1628 0%, #0d1b2a 100%)',
-    border: '#1e3a5f',
+    bg: 'var(--sidebar)',
+    bgGradient: 'linear-gradient(180deg, var(--sidebar) 0%, var(--sidebar) 100%)',
+    border: 'var(--border)',
     activeHighlight: '#2563eb',
     hoverBg: 'rgba(37, 99, 235, 0.15)',
     text: '#ffffff',

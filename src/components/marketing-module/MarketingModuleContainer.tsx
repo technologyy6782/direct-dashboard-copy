@@ -47,7 +47,7 @@ export const MarketingModuleContainer: React.FC<MarketingModuleContainerProps> =
   };
 
   return (
-    <div className="flex min-h-screen w-full" style={{ background: '#0B0F1A' }}>
+    <div className="flex min-h-screen w-full" style={{ background: 'var(--background)' }}>
       <MarketingModuleSidebar 
         activeSection={activeSection} 
         setActiveSection={setActiveSection}
