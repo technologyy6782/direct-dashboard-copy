@@ -55,9 +55,8 @@ export function BossPanelLayout({ children }: BossPanelLayoutProps) {
 
         {/* Main Content - White background like reference */}
         <main 
-          className="flex-1 p-6 transition-all duration-300"
+          className={`flex-1 min-w-0 p-4 sm:p-6 transition-all duration-300 ml-0 ${sidebarCollapsed ? 'lg:ml-[200px]' : 'lg:ml-[260px]'}`}
           style={{ 
-            marginLeft: sidebarCollapsed ? '80px' : '260px',
             background: '#F8FAFC'
           }}
         >
