@@ -70,7 +70,7 @@ export function BossPanelSidebar({
     <motion.aside
       initial={false}
       animate={{ width: collapsed ? 200 : 260 }}
-      className="fixed left-0 top-16 h-[calc(100vh-64px)] z-40 flex flex-col"
+      className="fixed left-0 top-16 h-[calc(100vh-64px)] z-40 hidden lg:flex flex-col"
       style={{ 
         background: SIDEBAR_COLORS.bgGradient,
         borderRight: `1px solid ${SIDEBAR_COLORS.border}`,
