@@ -52,10 +52,18 @@ export function UnifiedShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen w-full bg-background text-foreground">
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+          onClick={() => setMobileOpen(false)}
+          aria-hidden
+        />
+      )}
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-border lg:static lg:flex",
+          "fixed inset-y-0 left-0 z-50 w-[min(17rem,85vw)] shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-border lg:static lg:flex lg:w-64",
           mobileOpen ? "flex" : "hidden",
         )}
       >
@@ -167,8 +175,8 @@ export function UnifiedShell({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        <main className="flex-1 min-w-0 px-4 lg:px-6 py-6">
-          <div className="max-w-[1600px] w-full mx-auto">{children}</div>
+        <main className="flex-1 min-w-0 px-4 lg:px-6 py-4 sm:py-6">
+          <div className="max-w-[1600px] w-full min-w-0 mx-auto">{children}</div>
         </main>
       </div>
     </div>
