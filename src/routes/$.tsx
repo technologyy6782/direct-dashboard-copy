@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
+import { UnifiedShell } from "@/components/layout/UnifiedShell";
 
 // The merged module app (all feature dashboards from the reference project)
 // is mounted here as a catch-all. Existing top-level routes such as "/" and
@@ -23,8 +24,10 @@ export const Route = createFileRoute("/$")({
 
 function ModuleAppRoute() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-background" />}>
-      <ModuleApp />
-    </Suspense>
+    <UnifiedShell>
+      <Suspense fallback={<div className="min-h-[60vh] bg-background" />}>
+        <ModuleApp />
+      </Suspense>
+    </UnifiedShell>
   );
 }
