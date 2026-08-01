@@ -83,6 +83,13 @@ function NotSignedIn({ onPick }: { onPick: (r: RoleKey) => void }) {
           Go to login
         </a>
 
+        <a
+          href="/control-panel"
+          className="mt-2 block w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-center text-sm font-semibold transition hover:bg-surface-2"
+        >
+          Open Control Panel
+        </a>
+
         <div className="mt-6 pt-4 border-t border-border">
           <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
             Dev preview · pick a role
