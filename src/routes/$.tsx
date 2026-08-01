@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { UnifiedShell } from "@/components/layout/UnifiedShell";
 
 // The merged module app (all feature dashboards from the reference project)
 // is mounted here as a catch-all. Existing top-level routes such as "/" and
 // "/dashboard/$role" still win, so the current UI is untouched.
-const ModuleApp = lazy(() => import("@/App"));
+import ModuleApp from "@/App";
 
 export const Route = createFileRoute("/$")({
   ssr: false,
