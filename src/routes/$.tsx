@@ -26,7 +26,7 @@ function ModuleAppRoute() {
   return (
     <UnifiedShell>
       <Suspense fallback={<div className="min-h-[60vh] bg-background" />}>
-        <ModuleApp />
+        <div style={{padding:24}}>TEST_MARKER</div>
       </Suspense>
     </UnifiedShell>
   );
