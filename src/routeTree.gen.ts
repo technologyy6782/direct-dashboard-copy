@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ProbeRouteImport } from './routes/probe'
 import { Route as ControlPanelRouteImport } from './routes/control-panel'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -90,11 +89,6 @@ import { Route as AuthenticatedAwardsLibrariesBadgesRouteImport } from './routes
 import { Route as AuthenticatedAwardsLibrariesAchievementsRouteImport } from './routes/_authenticated/awards.libraries.achievements'
 import { Route as AuthenticatedAwardsIdEditRouteImport } from './routes/_authenticated/awards.$id.edit'
 
-const ProbeRoute = ProbeRouteImport.update({
-  id: '/probe',
-  path: '/probe',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ControlPanelRoute = ControlPanelRouteImport.update({
   id: '/control-panel',
   path: '/control-panel',
@@ -540,7 +534,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/control-panel': typeof ControlPanelRoute
-  '/probe': typeof ProbeRoute
   '/achievement-vault': typeof AuthenticatedAchievementVaultRoute
   '/achievements': typeof AuthenticatedAchievementsRoute
   '/ai': typeof AuthenticatedAiRoute
@@ -621,7 +614,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/control-panel': typeof ControlPanelRoute
-  '/probe': typeof ProbeRoute
   '/achievement-vault': typeof AuthenticatedAchievementVaultRoute
   '/achievements': typeof AuthenticatedAchievementsRoute
   '/ai': typeof AuthenticatedAiRoute
@@ -703,7 +695,6 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/$': typeof SplatRoute
   '/control-panel': typeof ControlPanelRoute
-  '/probe': typeof ProbeRoute
   '/_authenticated/achievement-vault': typeof AuthenticatedAchievementVaultRoute
   '/_authenticated/achievements': typeof AuthenticatedAchievementsRoute
   '/_authenticated/ai': typeof AuthenticatedAiRoute
@@ -786,7 +777,6 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/control-panel'
-    | '/probe'
     | '/achievement-vault'
     | '/achievements'
     | '/ai'
@@ -867,7 +857,6 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/control-panel'
-    | '/probe'
     | '/achievement-vault'
     | '/achievements'
     | '/ai'
@@ -948,7 +937,6 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/$'
     | '/control-panel'
-    | '/probe'
     | '/_authenticated/achievement-vault'
     | '/_authenticated/achievements'
     | '/_authenticated/ai'
@@ -1031,20 +1019,12 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   SplatRoute: typeof SplatRoute
   ControlPanelRoute: typeof ControlPanelRoute
-  ProbeRoute: typeof ProbeRoute
   DashboardRoleRoute: typeof DashboardRoleRoute
   VerifyCodeRoute: typeof VerifyCodeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/probe': {
-      id: '/probe'
-      path: '/probe'
-      fullPath: '/probe'
-      preLoaderRoute: typeof ProbeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/control-panel': {
       id: '/control-panel'
       path: '/control-panel'
@@ -1791,7 +1771,6 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   SplatRoute: SplatRoute,
   ControlPanelRoute: ControlPanelRoute,
-  ProbeRoute: ProbeRoute,
   DashboardRoleRoute: DashboardRoleRoute,
   VerifyCodeRoute: VerifyCodeRoute,
 }
