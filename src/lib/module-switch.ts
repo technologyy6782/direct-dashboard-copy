@@ -6,7 +6,13 @@
 
 export type ModuleGroup = { group: string; items: { label: string; path: string }[] };
 
-export const MODULES: { label: string; path: string }[] = [
+export type ModuleDefinition = {
+  label: string;
+  path: string;
+  navigation?: string[];
+};
+
+export const MODULES: ModuleDefinition[] = [
   { label: "Boss Dashboard", path: "/boss/dashboard" },
   { label: "CEO Dashboard", path: "/ceo/dashboard" },
   { label: "Vala AI", path: "/ai-console" },
@@ -18,8 +24,8 @@ export const MODULES: { label: string; path: string }[] = [
   { label: "Task Manager", path: "/task-manager" },
   { label: "Promise Tracker", path: "/promise-tracker" },
   { label: "Assist Manager", path: "/assist-manager" },
-  { label: "AMS Manager", path: "/command-center" },
-  { label: "Marketplace Manager", path: "/products" },
+  { label: "AMS Manager", path: "/ams", navigation: ["Tickets", "Awards", "Achievements", "Leaderboards", "Reports", "Settings"] },
+  { label: "Marketplace Manager", path: "/marketplace-manager", navigation: ["Overview", "Products", "Categories", "Pricing", "Orders", "Inventory", "Reviews", "SEO", "Analytics", "Reports", "Settings"] },
   { label: "Marketing Manager", path: "/marketing-manager" },
   { label: "SEO Manager", path: "/seo-manager" },
   { label: "Lead Manager", path: "/lead-manager" },
@@ -37,9 +43,9 @@ export const MODULES: { label: string; path: string }[] = [
   { label: "Pro Manager", path: "/product-demo-manager" },
   { label: "Pro User Dashboard", path: "/prime-user" },
   { label: "Basic User Dashboard", path: "/user-dashboard" },
-  { label: "Home", path: "/" },
+  { label: "Home", path: "/home-workspace" },
   { label: "Security", path: "/security-command" },
-  { label: "Settings", path: "/settings" },
+  { label: "Settings", path: "/system-settings" },
 ];
 
 // Single flat group — the module switch dashboard shows only these modules.
