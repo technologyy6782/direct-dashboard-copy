@@ -367,9 +367,11 @@ const App = () => (
                           <Routes>
                           {/* Public Routes - No login required */}
               <Route path="/" element={<Index />} />
+              <Route path="/home-workspace" element={<Index />} />
               <Route path="/demos" element={<Index />} />
               <Route path="/explore" element={<Navigate to="/demos" replace />} />
               <Route path="/products" element={<Index />} />
+              <Route path="/marketplace-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductManagerPage /></RequireRole>} />
               <Route path="/pricing" element={<SimpleDemoList />} />
               <Route path="/demos/public" element={<PublicDemos />} />
               <Route path="/showcase" element={<PremiumDemoShowcaseNew />} />

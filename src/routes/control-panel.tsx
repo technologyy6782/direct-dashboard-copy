@@ -22,6 +22,7 @@ export const Route = createFileRoute("/control-panel")({
 
 const Q_KEY = "cp:q";
 const SCROLL_KEY = "cp:scroll";
+const ACTIVE_MODULE_KEY = "cp:active-module";
 
 function ControlPanel() {
   const navigate = useNavigate();
@@ -53,16 +54,20 @@ function ControlPanel() {
 
   const open = (path: string) => {
     persistScroll();
+    const module = MODULES.find((item) => item.path === path);
+    try {
+      if (module) sessionStorage.setItem(ACTIVE_MODULE_KEY, JSON.stringify(module));
+    } catch { /* ignore */ }
     navigate({ href: path });
   };
 
   return (
     <div className="flex min-h-screen w-full bg-background text-foreground">
       {/* Control Panel sidebar — the ONLY sidebar on this screen */}
-      <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-border bg-sidebar text-sidebar-foreground">
+      <aside className="flex w-20 shrink-0 flex-col border-r border-border bg-sidebar text-sidebar-foreground sm:w-64">
         <div className="flex items-center gap-2.5 border-b border-border px-5 pb-4 pt-5">
           <img src={logoAsset.url} alt="Software Vala" className="h-10 w-10 rounded-full object-cover ring-2 ring-[oklch(0.45_0.2_260)]/60" />
-          <div className="min-w-0">
+          <div className="hidden min-w-0 sm:block">
             <div className="truncate text-sm font-bold leading-tight tracking-tight">Software Vala™</div>
             <div className="truncate text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Control Panel</div>
           </div>
@@ -74,7 +79,7 @@ function ControlPanel() {
               onClick={() => open(m.path)}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm text-sidebar-foreground/80 transition hover:bg-white/5 hover:text-foreground"
             >
-              <span className="truncate">{m.label}</span>
+              <span className="truncate text-[10px] sm:text-sm">{m.label}</span>
             </button>
           ))}
           {items.length === 0 && (

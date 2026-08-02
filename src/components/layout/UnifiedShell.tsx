@@ -9,11 +9,12 @@
  * "← Back to Control Panel" which returns to the panel with its search /
  * scroll state preserved.
  */
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
-import { Search, Bell, MessageSquare, Sparkles, ChevronLeft, Store } from "lucide-react";
+import { Search, Bell, MessageSquare, Sparkles, ChevronLeft, Store, LayoutDashboard, BarChart3, Settings, PanelLeft } from "lucide-react";
 import logoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
 import { MODULES } from "@/lib/module-switch";
+import { Button } from "@/components/ui/button";
 
 function titleFor(path: string) {
   const match = MODULES.filter((m) => m.path !== "/" && path.startsWith(m.path)).sort(
@@ -24,22 +25,48 @@ function titleFor(path: string) {
   return seg.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+function moduleFor(path: string) {
+  const direct = MODULES.filter((module) => module.path !== "/" && path.startsWith(module.path)).sort(
+    (a, b) => b.path.length - a.path.length,
+  )[0];
+  if (direct) return direct;
+  try {
+    const stored = sessionStorage.getItem("cp:active-module");
+    if (stored) return JSON.parse(stored) as (typeof MODULES)[number];
+  } catch { /* ignore */ }
+  return { label: titleFor(path), path, navigation: ["Overview", "Reports", "Analytics", "Settings"] };
+}
+
 export function UnifiedShell({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const title = titleFor(path);
+  const module = moduleFor(path);
+  const title = module.label;
+  const contentRef = useRef<HTMLElement | null>(null);
+  const [hasInternalSidebar, setHasInternalSidebar] = useState(false);
+
+  useEffect(() => {
+    const root = contentRef.current;
+    if (!root) return;
+    const update = () => setHasInternalSidebar(Boolean(root.querySelector("aside")));
+    update();
+    const observer = new MutationObserver(update);
+    observer.observe(root, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [path]);
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
       <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-background/85 px-4 backdrop-blur lg:px-6">
-        <button
+        <Button
+          variant="outline"
           onClick={() => navigate({ to: "/control-panel" })}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-2 text-xs font-medium text-foreground/90 transition hover:bg-surface-2"
+          className="h-9 gap-1.5 px-3 text-xs"
         >
           <ChevronLeft className="h-3.5 w-3.5" />
           <span className="hidden sm:inline">Back to Control Panel</span>
           <span className="sm:hidden">Back</span>
-        </button>
+        </Button>
 
         <div className="flex min-w-0 items-center gap-2">
           <img src={logoAsset.url} alt="Software Vala" className="h-8 w-8 shrink-0 rounded-full object-cover ring-2 ring-[oklch(0.45_0.2_260)]/60" />
@@ -55,32 +82,61 @@ export function UnifiedShell({ children }: { children: ReactNode }) {
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <button className="hidden lg:inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-2 text-xs font-medium text-foreground/90 transition hover:bg-surface-2">
+          <Button variant="outline" className="hidden h-9 gap-2 px-3 text-xs lg:inline-flex">
             <Store className="h-3.5 w-3.5" />
             Marketplace
-          </button>
-          <button className="hidden md:inline-flex items-center gap-2 rounded-lg bg-gradient-brand px-3 py-2 text-xs font-medium text-brand-foreground shadow-glow transition hover:opacity-95">
+          </Button>
+          <Button className="hidden h-9 gap-2 px-3 text-xs md:inline-flex">
             <Sparkles className="h-3.5 w-3.5" />
             AI Chat
-          </button>
+          </Button>
           <IconBtn icon={MessageSquare} title="Messages" />
           <IconBtn icon={Bell} title="Notifications" />
         </div>
       </header>
 
-      <main className="min-w-0 flex-1">{children}</main>
+      <div className="flex min-h-0 flex-1">
+        {!hasInternalSidebar && <WorkspaceSidebar title={title} items={module.navigation} />}
+        <main ref={contentRef} className="min-w-0 flex-1">{children}</main>
+      </div>
     </div>
   );
 }
 
 function IconBtn({ icon: Icon, title }) {
   return (
-    <button
+    <Button
+      variant="outline"
+      size="icon"
       title={title}
-      className="rounded-lg border border-border bg-surface p-2 text-foreground/80 transition hover:bg-surface-2 hover:text-foreground"
+      className="h-9 w-9"
     >
       <Icon className="h-4 w-4" />
-    </button>
+    </Button>
+  );
+}
+
+function WorkspaceSidebar({ title, items }: { title: string; items?: string[] }) {
+  const navigation = items?.length ? items : ["Overview", "Reports", "Analytics", "Settings"];
+  const icons = [LayoutDashboard, PanelLeft, BarChart3, Settings];
+  return (
+    <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-sidebar text-sidebar-foreground md:flex">
+      <div className="border-b border-border px-4 py-4">
+        <p className="truncate text-sm font-semibold">{title}</p>
+        <p className="text-[10px] uppercase text-muted-foreground">Workspace</p>
+      </div>
+      <nav className="flex-1 space-y-1 overflow-y-auto p-3" aria-label={`${title} navigation`}>
+        {navigation.map((item, index) => {
+          const Icon = icons[index % icons.length];
+          return (
+            <Button key={item} variant={index === 0 ? "secondary" : "ghost"} className="w-full justify-start gap-3 text-sm">
+              <Icon className="h-4 w-4" />
+              <span className="truncate">{item}</span>
+            </Button>
+          );
+        })}
+      </nav>
+    </aside>
   );
 }
 
