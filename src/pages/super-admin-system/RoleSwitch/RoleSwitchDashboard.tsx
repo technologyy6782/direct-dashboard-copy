@@ -322,11 +322,8 @@ const RoleSwitchDashboard = () => {
   
   // Handle back to Control Panel from role dashboard
   const handleBackToControlPanel = useCallback(() => {
-    setActiveRole(null);
-    setActiveNav('dashboard');
-    setSelectedSubItem(undefined);
-    toast.info('Returned to Control Panel');
-  }, []);
+    navigate('/control-panel');
+  }, [navigate]);
 
   // Initialize role based on URL or user's actual role
   const didInitRef = useRef(false);
@@ -341,14 +338,7 @@ const RoleSwitchDashboard = () => {
     if (requestedRole && requestedRole !== prevRequestedRoleRef.current) {
       prevRequestedRoleRef.current = requestedRole;
 
-      // BOSS RULE: Only boss_owner starts at Control Panel - CEO should open its dashboard directly
-      const shouldStartInControlPanel = requestedRole === 'boss_owner';
-
-      if (shouldStartInControlPanel) {
-        setActiveRole(null);
-        setActiveNav("dashboard");
-        setSelectedSubItem(undefined);
-      } else if (canAccessView(requestedRole)) {
+      if (canAccessView(requestedRole)) {
         setActiveRole(requestedRole);
         setActiveNav("dashboard");
         setSelectedSubItem(undefined);
