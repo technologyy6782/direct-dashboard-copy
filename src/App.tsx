@@ -188,6 +188,19 @@ import EnterpriseControlHub from "./pages/enterprise-control/EnterpriseControlHu
 import BulkUserCreation from "./pages/admin/BulkUserCreation";
 import BulkActionsReference from "./pages/admin/BulkActionsReference";
 import ContinentSuperAdminDashboard from "./pages/continent-super-admin/ContinentSuperAdminDashboard";
+import BossPanel from "./pages/BossPanel";
+import { MMFullLayout } from "./components/marketplace-manager/MMFullLayout";
+import PMEnterpriseLayout from "./components/product-manager/PMEnterpriseLayout";
+import DemoManagerFullLayout from "./components/demo-manager/DemoManagerFullLayout";
+import TMFullLayout from "./components/task-manager/TMFullLayout";
+import PTFullLayout from "./components/promise-tracker/PTFullLayout";
+import AMFullLayout from "./components/assist-manager/AMFullLayout";
+import AAMEnterpriseLayout from "./components/api-ai-manager/AAMEnterpriseLayout";
+import DMFullLayout from "./components/developer-management/DMFullLayout";
+import CountryHeadDashboard from "./components/country-dashboard/CountryHeadDashboard";
+import HomeDashboard from "./components/control-panel/HomeDashboard";
+import SecurityDashboard from "./components/control-panel/SecurityDashboard";
+import SettingsDashboard from "./components/control-panel/SettingsDashboard";
 
 // Product Demo Manager
 import ProductDemoManagerPage from "./pages/product-demo-manager";
@@ -367,11 +380,11 @@ const App = () => (
                           <Routes>
                           {/* Public Routes - No login required */}
               <Route path="/" element={<Index />} />
-              <Route path="/home-workspace" element={<Index />} />
+              <Route path="/home-workspace" element={<HomeDashboard />} />
               <Route path="/demos" element={<Index />} />
               <Route path="/explore" element={<Navigate to="/demos" replace />} />
               <Route path="/products" element={<Index />} />
-              <Route path="/marketplace-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductManagerPage /></RequireRole>} />
+              <Route path="/marketplace-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><MMFullLayout /></RequireRole>} />
               <Route path="/pricing" element={<SimpleDemoList />} />
               <Route path="/demos/public" element={<PublicDemos />} />
               <Route path="/showcase" element={<PremiumDemoShowcaseNew />} />
@@ -498,8 +511,8 @@ const App = () => (
               <Route path="/security-command/*" element={<RequireRole allowed={["boss_owner"]}><SecurityCommandCenter /></RequireRole>} />
 
               {/* API / AI Manager Routes */}
-              <Route path="/api-manager" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><APIManagerDashboard /></RequireRole>} />
-              <Route path="/api-manager/*" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><APIManagerDashboard /></RequireRole>} />
+              <Route path="/api-manager" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><AAMEnterpriseLayout /></RequireRole>} />
+              <Route path="/api-manager/*" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><AAMEnterpriseLayout /></RequireRole>} />
 
               {/* Marketing Manager Routes */}
               <Route path="/marketing-manager" element={<RequireRole allowed={["boss_owner", "marketing_manager"]}><MarketingManagerDashboard /></RequireRole>} />
@@ -543,7 +556,7 @@ const App = () => (
               <Route path="/super-admin/permission-matrix" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><PermissionMatrix /></RequireRole>} />
               <Route path="/super-admin/security-center" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><SecurityCenter /></RequireRole>} />
               <Route path="/super-admin/demo-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductDemoManager /></RequireRole>} />
-              <Route path="/super-admin/product-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductManagerPage /></RequireRole>} />
+              <Route path="/super-admin/product-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><PMEnterpriseLayout /></RequireRole>} />
               <Route path="/super-admin/system-settings" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><SystemSettings /></RequireRole>} />
               <Route path="/super-admin/system-audit" element={<RequireRole allowed={["boss_owner"]}><SystemAudit /></RequireRole>} />
               <Route path="/super-admin/prime-manager" element={<RequireRole allowed={["boss_owner"]}><PrimeManager /></RequireRole>} />
@@ -627,10 +640,10 @@ const App = () => (
               {/* Manager Routes - PROTECTED BY ROLE */}
               <Route path="/lead-manager" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><LeadManager /></RequireRole>} />
               <Route path="/leads/*" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><LeadManager /></RequireRole>} />
-              <Route path="/task-manager" element={<RequireRole allowed={["task_manager", "super_admin"]}><TaskManager /></RequireRole>} />
+              <Route path="/task-manager" element={<RequireRole allowed={["task_manager", "super_admin"]}><TMFullLayout /></RequireRole>} />
               <Route path="/tasks/*" element={<RequireRole allowed={["task_manager", "super_admin"]}><TaskManager /></RequireRole>} />
-              <Route path="/demo-manager" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerDashboard /></RequireRole>} />
-              <Route path="/demo-manager/*" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerDashboard /></RequireRole>} />
+              <Route path="/demo-manager" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerFullLayout /></RequireRole>} />
+              <Route path="/demo-manager/*" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerFullLayout /></RequireRole>} />
               <Route path="/demo" element={<RequireRole allowed={["demo_manager", "franchise", "reseller", "super_admin"]}><ProductDemoManager /></RequireRole>} />
               <Route path="/demos/*" element={<RequireRole allowed={["demo_manager", "franchise", "reseller", "super_admin"]}><ProductDemoManager /></RequireRole>} />
               <Route path="/finance" element={<RequireRole allowed={["finance_manager", "super_admin"]}><FinanceManager /></RequireRole>} />
@@ -672,15 +685,15 @@ const App = () => (
               {/* NEW ROLES (25-28) Routes */}
               <Route path="/safe-assist" element={<RequireRole allowed={["safe_assist", "super_admin", "master"]}><SafeAssistDashboard /></RequireRole>} />
               <Route path="/safe-assist/*" element={<RequireRole allowed={["safe_assist", "super_admin", "master"]}><SafeAssistDashboard /></RequireRole>} />
-              <Route path="/assist-manager" element={<RequireRole allowed={["assist_manager", "super_admin", "master"]}><AssistManagerDashboard /></RequireRole>} />
-              <Route path="/assist-manager/*" element={<RequireRole allowed={["assist_manager", "super_admin", "master"]}><AssistManagerDashboard /></RequireRole>} />
-              <Route path="/promise-tracker" element={<RequireRole allowed={["promise_tracker", "super_admin", "master"]}><PromiseTrackerDashboard /></RequireRole>} />
-              <Route path="/promise-tracker/*" element={<RequireRole allowed={["promise_tracker", "super_admin", "master"]}><PromiseTrackerDashboard /></RequireRole>} />
+              <Route path="/assist-manager" element={<RequireRole allowed={["assist_manager", "super_admin", "master"]}><AMFullLayout /></RequireRole>} />
+              <Route path="/assist-manager/*" element={<RequireRole allowed={["assist_manager", "super_admin", "master"]}><AMFullLayout /></RequireRole>} />
+              <Route path="/promise-tracker" element={<RequireRole allowed={["promise_tracker", "super_admin", "master"]}><PTFullLayout /></RequireRole>} />
+              <Route path="/promise-tracker/*" element={<RequireRole allowed={["promise_tracker", "super_admin", "master"]}><PTFullLayout /></RequireRole>} />
               <Route path="/promise-management" element={<RequireRole allowed={["promise_management", "super_admin", "master"]}><PromiseManagementDashboard /></RequireRole>} />
               <Route path="/promise-management/*" element={<RequireRole allowed={["promise_management", "super_admin", "master"]}><PromiseManagementDashboard /></RequireRole>} />
 
               {/* System Routes - SUPER ADMIN ONLY */}
-              <Route path="/system-settings" element={<RequireRole allowed={["super_admin"]}><SystemSettings /></RequireRole>} />
+              <Route path="/system-settings" element={<RequireRole allowed={["super_admin"]}><SettingsDashboard /></RequireRole>} />
               <Route path="/buzzer-console" element={<RequireRole allowed={["super_admin"]}><NotificationBuzzerConsole /></RequireRole>} />
               <Route path="/api-integrations" element={<RequireRole allowed={["super_admin"]}><APIIntegrationDashboard /></RequireRole>} />
               <Route path="/internal-chat" element={<RequireAuth><InternalChat /></RequireAuth>} />
@@ -707,7 +720,7 @@ const App = () => (
               <Route path="/vala/master" element={<RequireRole allowed={["master"]} masterOnly><ValaMasterWorkspace /></RequireRole>} />
 
               {/* Dev Manager Dashboard */}
-              <Route path="/dev-manager" element={<RequireAuth><SecureDevManagerDashboard /></RequireAuth>} />
+              <Route path="/dev-manager" element={<RequireAuth><DMFullLayout /></RequireAuth>} />
 
               {/* HR Manager Dashboard */}
               <Route path="/hr-manager" element={<RequireAuth><SecureHRManagerDashboard /></RequireAuth>} />
@@ -717,11 +730,11 @@ const App = () => (
 
               {/* Super Admin System Routes */}
               {/* Explicit dashboard aliases (never allow route-not-found -> blank screen) */}
-              <Route path="/boss/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
+              <Route path="/boss/dashboard" element={<BossPanel />} />
               <Route path="/ceo/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=ceo" replace />} />
               <Route path="/admin/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=admin" replace />} />
               <Route path="/continent/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=continent_super_admin" replace />} />
-              <Route path="/country/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=country_head" replace />} />
+              <Route path="/country/dashboard" element={<CountryHeadDashboard countryCode="IN" />} />
 
               <Route path="/super-admin-system" element={<Navigate to="/super-admin-system/dashboard" replace />} />
               {/* Short aliases (avoid 404 when users type abbreviated links) */}

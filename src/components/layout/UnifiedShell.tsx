@@ -9,9 +9,9 @@
  * "← Back to Control Panel" which returns to the panel with its search /
  * scroll state preserved.
  */
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
-import { Search, Bell, MessageSquare, Sparkles, ChevronLeft, Store, LayoutDashboard, BarChart3, Settings, PanelLeft } from "lucide-react";
+import { Search, Bell, MessageSquare, Sparkles, ChevronLeft, Store } from "lucide-react";
 import logoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
 import { MODULES } from "@/lib/module-switch";
 import { Button } from "@/components/ui/button";
@@ -42,19 +42,6 @@ export function UnifiedShell({ children }: { children: ReactNode }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const module = moduleFor(path);
   const title = module.label;
-  const contentRef = useRef<HTMLElement | null>(null);
-  const [hasInternalSidebar, setHasInternalSidebar] = useState(false);
-
-  useEffect(() => {
-    const root = contentRef.current;
-    if (!root) return;
-    const update = () => setHasInternalSidebar(Boolean(root.querySelector("aside")));
-    update();
-    const observer = new MutationObserver(update);
-    observer.observe(root, { childList: true, subtree: true });
-    return () => observer.disconnect();
-  }, [path]);
-
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground">
       <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-background/85 px-4 backdrop-blur lg:px-6">
@@ -96,8 +83,9 @@ export function UnifiedShell({ children }: { children: ReactNode }) {
       </header>
 
       <div className="flex min-h-0 flex-1">
-        {!hasInternalSidebar && <WorkspaceSidebar title={title} items={module.navigation} />}
-        <main ref={contentRef} className="min-w-0 flex-1">{children}</main>
+        {/* The selected module owns all navigation below this header. Never
+            synthesize a second/global sidebar inside a module workspace. */}
+        <main className="min-w-0 flex-1">{children}</main>
       </div>
     </div>
   );
@@ -113,30 +101,6 @@ function IconBtn({ icon: Icon, title }) {
     >
       <Icon className="h-4 w-4" />
     </Button>
-  );
-}
-
-function WorkspaceSidebar({ title, items }: { title: string; items?: string[] }) {
-  const navigation = items?.length ? items : ["Overview", "Reports", "Analytics", "Settings"];
-  const icons = [LayoutDashboard, PanelLeft, BarChart3, Settings];
-  return (
-    <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-sidebar text-sidebar-foreground md:flex">
-      <div className="border-b border-border px-4 py-4">
-        <p className="truncate text-sm font-semibold">{title}</p>
-        <p className="text-[10px] uppercase text-muted-foreground">Workspace</p>
-      </div>
-      <nav className="flex-1 space-y-1 overflow-y-auto p-3" aria-label={`${title} navigation`}>
-        {navigation.map((item, index) => {
-          const Icon = icons[index % icons.length];
-          return (
-            <Button key={item} variant={index === 0 ? "secondary" : "ghost"} className="w-full justify-start gap-3 text-sm">
-              <Icon className="h-4 w-4" />
-              <span className="truncate">{item}</span>
-            </Button>
-          );
-        })}
-      </nav>
-    </aside>
   );
 }
 
