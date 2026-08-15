@@ -49,7 +49,7 @@ export function useNavigate() {
 }
 
 export function useParams<T extends Record<string, string | undefined> = Record<string, string | undefined>>() {
-  return useTanstackParams({ strict: false }) as T;
+  return (useTanstackParams as (opts: { strict: false }) => unknown)({ strict: false }) as T;
 }
 
 export function useSearchParams(): [URLSearchParams, (next: URLSearchParams | Record<string, string>, options?: { replace?: boolean }) => void] {
