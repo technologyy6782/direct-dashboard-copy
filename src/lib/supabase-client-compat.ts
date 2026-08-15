@@ -8,7 +8,9 @@
  */
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { supabase as generatedSupabase } from "../integrations/supabase/client";
-import type { Database } from "./supabase-types-compat";
 
-export const supabase = generatedSupabase as unknown as SupabaseClient<Database>;
+// NOTE: typed loosely on purpose. The merged modules are `@ts-nocheck`, and
+// instantiating the ~800KB generated `Database` type here made project-wide
+// typechecking take minutes.
+export const supabase = generatedSupabase as unknown as SupabaseClient;
 export default supabase;
