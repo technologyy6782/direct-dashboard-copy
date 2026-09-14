@@ -1,0 +1,12 @@
+{
+  "source": "github",
+  "repository": "https://github.com/kanikagupta7590/dashboard-migration.git",
+  "capabilities": [
+    {"capability":"code and assets","source":"repository working tree","outcome":"copied exact repository file set","status":"implemented","next_action":"verify file parity and runtime"},
+    {"capability":"schema and records","source":"repository inspection","outcome":"no database schema or record export detected","status":"not_present","next_action":"none"},
+    {"capability":"authentication and authorization","source":"repository inspection","outcome":"no auth provider or protected route detected","status":"not_present","next_action":"none"},
+    {"capability":"external providers and secrets","source":"repository inspection","outcome":"environment variable names detected; secret values were not copied","status":"preserved_as_configuration","next_action":"verify required values outside source copy"},
+    {"capability":"public endpoints, callbacks, webhooks, schedules","source":"repository inspection","outcome":"none detected","status":"not_present","next_action":"none"},
+    {"capability":"cutover and verification","source":"migration workflow","outcome":"repository files copied; runtime verification pending","status":"pending","next_action":"run build and preview checks"}
+  ]
+}
