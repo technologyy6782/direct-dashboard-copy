@@ -2,9 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { getAuthenticatedRole, devSetRole, EXISTING_LOGIN_URL } from "@/lib/auth-bridge";
 import { ROLES, ROLE_ORDER, type RoleKey } from "@/lib/roles";
-import { MODULE_GROUPS } from "@/lib/module-switch";
-import roundLogoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
-import { Loader2, Search } from "lucide-react";
+import roundLogoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
+import { Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   // SSR-disabled so we can read the existing client-side auth without leaking.
@@ -33,7 +32,7 @@ function RoleBridge() {
 
   if (status === "detecting") {
     return (
-      <div className="min-h-screen grid place-items-center bg-background text-foreground">
+      <div className="min-h-dvh grid place-items-center bg-background text-foreground">
         <div className="flex flex-col items-center gap-4">
           <img src={roundLogoAsset.url} alt="Software Vala" className="h-14 w-14 rounded-full ring-2 ring-white/15 shadow-glow" />
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -64,10 +63,12 @@ function NotSignedIn({ onPick }: { onPick: (r: RoleKey) => void }) {
   }, []);
 
   return (
-    <div className="min-h-screen grid place-items-center bg-background text-foreground p-6">
-      <div className="w-full max-w-3xl rounded-2xl border border-border bg-card p-6 shadow-card">
+    <div className="min-h-dvh grid place-items-center bg-background text-foreground p-6">
+      <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-card">
         <div className="flex items-center gap-3">
-          <img src={roundLogoAsset.url} alt="" className="h-10 w-10 rounded-full ring-2 ring-white/15" />
+          <span className="logo-3d h-11 w-11 shrink-0 block">
+            <img src={roundLogoAsset.url} alt="" className="h-full w-full rounded-full object-cover" />
+          </span>
           <div>
             <div className="text-sm font-semibold">Not signed in</div>
             <div className="text-[11px] text-muted-foreground">
@@ -81,13 +82,6 @@ function NotSignedIn({ onPick }: { onPick: (r: RoleKey) => void }) {
           className="mt-5 block w-full text-center rounded-lg bg-gradient-brand text-brand-foreground px-4 py-2.5 text-sm font-semibold shadow-glow"
         >
           Go to login
-        </a>
-
-        <a
-          href="/control-panel"
-          className="mt-2 block w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-center text-sm font-semibold transition hover:bg-surface-2"
-        >
-          Open Control Panel
         </a>
 
         <div className="mt-6 pt-4 border-t border-border">
@@ -111,65 +105,6 @@ function NotSignedIn({ onPick }: { onPick: (r: RoleKey) => void }) {
             <code className="text-foreground/80"> src/lib/auth-bridge.ts</code> is wired to your real auth.
           </p>
         </div>
-
-        <ModuleSwitcher />
-      </div>
-    </div>
-  );
-}
-
-function ModuleSwitcher() {
-  const [q, setQ] = useState("");
-  const needle = q.trim().toLowerCase();
-  const groups = MODULE_GROUPS.map((g) => ({
-    ...g,
-    items: needle
-      ? g.items.filter(
-          (i) => i.label.toLowerCase().includes(needle) || i.path.toLowerCase().includes(needle),
-        )
-      : g.items,
-  })).filter((g) => g.items.length > 0);
-
-  return (
-    <div className="mt-6 pt-4 border-t border-border">
-      <div className="flex items-center justify-between gap-3 mb-3">
-        <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-          Module switch · all workspaces
-        </div>
-        <div className="relative w-48">
-          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search module…"
-            className="w-full rounded-lg bg-surface border border-border pl-7 pr-2 py-1.5 text-[11px] outline-none focus:border-brand/60"
-          />
-        </div>
-      </div>
-
-      <div className="max-h-[45vh] overflow-y-auto pr-1 space-y-4">
-        {groups.map((g) => (
-          <div key={g.group}>
-            <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/70 mb-1.5">
-              {g.group}
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-              {g.items.map((i) => (
-                <a
-                  key={g.group + i.path + i.label}
-                  href={i.path}
-                  className="truncate rounded-lg bg-surface border border-border px-2.5 py-2 text-[11px] font-medium hover:bg-surface-2 transition"
-                  title={i.path}
-                >
-                  {i.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-        {groups.length === 0 && (
-          <div className="text-[11px] text-muted-foreground py-4 text-center">No module matches “{q}”.</div>
-        )}
       </div>
     </div>
   );

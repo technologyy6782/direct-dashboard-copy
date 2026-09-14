@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import roundLogoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
+import roundLogoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
 
 type Reward =
   | "gold"      // Gold Particle Rain
@@ -114,7 +114,8 @@ export function LogoButton({ size = 36 }: { size?: number }) {
   return (
     <button
       onClick={onClick}
-      className="relative shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-ring transition-transform active:scale-95"
+      type="button"
+      className="logo-3d focus-ring shrink-0"
       style={{ width: size, height: size }}
       aria-label="Software Vala — click for a reward"
       title="Click me ✦"
@@ -122,7 +123,7 @@ export function LogoButton({ size = 36 }: { size?: number }) {
       <img
         src={roundLogoAsset.url}
         alt="Software Vala"
-        className="h-full w-full rounded-full object-cover ring-2 ring-white/20"
+        className="h-full w-full rounded-full object-cover"
         draggable={false}
       />
       {/* Glow rings */}
