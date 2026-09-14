@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -6,16 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold tracking-tight cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:relative [&_svg]:z-10 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 subpixel-antialiased",
   {
     variants: {
       variant: {
-        default: "btn-3d bg-gradient-brand text-primary-foreground hover:bg-primary/90",
-        destructive: "btn-3d bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        default:
+          "press-3d bg-primary text-primary-foreground bg-[linear-gradient(180deg,oklch(1_0_0/0.14),oklch(1_0_0/0)_55%)] hover:bg-primary/90",
+        destructive:
+          "press-3d bg-destructive text-destructive-foreground bg-[linear-gradient(180deg,oklch(1_0_0/0.14),oklch(1_0_0/0)_55%)] hover:bg-destructive/90",
         outline:
-          "btn-3d border border-input bg-surface text-foreground hover:bg-accent hover:text-accent-foreground",
-        secondary: "btn-3d bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground active:scale-[0.98] transition-transform",
+          "press-3d border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "press-3d bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

@@ -3,7 +3,7 @@ import {
   Camera, ImageIcon, ShieldCheck, Pencil, Crown, Layers, Briefcase, Trophy,
   Target as TargetIcon, Gauge, TrendingUp, RotateCcw, Trash2, Upload,
 } from "lucide-react";
-import defaultLogoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
+import defaultLogoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
 import defaultBannerAsset from "@/assets/softwarevala-banner-checker.jpg.asset.json";
 
 type ResellerProfile = {
@@ -155,15 +155,15 @@ export function ResellerProfileHero({
           <div className="relative">
             <button
               onClick={() => setMenuOpen((m) => (m === "logo" ? null : "logo"))}
-              className="relative h-24 w-24 shrink-0 rounded-full border-4 border-background bg-white overflow-hidden grid place-items-center shadow-card ring-2 ring-[oklch(0.55_0.22_25)]/60 group"
+              className="logo-3d relative h-24 w-24 shrink-0 rounded-full border-4 border-background bg-white grid place-items-center group"
               title="Manage logo"
             >
               {profile.logoUrl ? (
-                <img src={profile.logoUrl} alt={`${roleName} logo`} className="h-full w-full object-cover" />
+                <img src={profile.logoUrl} alt={`${roleName} logo`} className="h-full w-full rounded-full object-cover" />
               ) : (
                 <ImageIcon className="h-8 w-8 text-muted-foreground" />
               )}
-              <span className="absolute inset-x-0 bottom-0 grid place-items-center bg-black/60 text-white text-[10px] py-0.5 opacity-0 group-hover:opacity-100 transition">
+              <span className="absolute z-10 inset-x-0 bottom-0 grid place-items-center rounded-b-full bg-black/60 text-white text-[10px] py-1 opacity-0 group-hover:opacity-100 transition">
                 <Camera className="h-3 w-3" />
               </span>
             </button>

@@ -1,8 +1,10 @@
+import { memo } from "react";
 import { Home, Compass, Layers, FolderOpen, Settings, LifeBuoy, LogOut, Sparkles, Calculator } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
-import logoAsset from "@/assets/softwarevala-logo-official.jpg.asset.json";
+import logoAsset from "@/assets/softwarevala-logo-round-v2.jpg.asset.json";
 import type { RoleConfig } from "@/lib/roles";
 import { signOut } from "@/lib/auth-bridge";
+import { notifyPending } from "@/lib/ui-actions";
 import { cn } from "@/lib/utils";
 import { RESELLER_CENTER_ORDER, RESELLER_CENTERS } from "@/lib/reseller-extras";
 
@@ -12,7 +14,7 @@ type Props = {
   onSelectModule: (key: string | null) => void;
 };
 
-export function Sidebar({ role, activeModule, onSelectModule }: Props) {
+function SidebarBase({ role, activeModule, onSelectModule }: Props) {
   const navigate = useNavigate();
   async function handleLogout() {
     await signOut();
@@ -24,12 +26,15 @@ export function Sidebar({ role, activeModule, onSelectModule }: Props) {
   return (
     <aside className="hidden lg:flex w-64 shrink-0 flex-col bg-sidebar text-sidebar-foreground border-r border-border">
       <div className="px-5 pt-5 pb-4 border-b border-border">
-        <div className="flex items-center gap-2.5">
-          <img
-            src={logoAsset.url}
-            alt="Software Vala"
-            className="h-10 w-10 rounded-full object-cover ring-2 ring-[oklch(0.45_0.2_260)]/60 shadow-sm"
-          />
+        <div className="flex items-center gap-3">
+          <span className="logo-3d h-11 w-11 shrink-0 block">
+            <img
+              src={logoAsset.url}
+              alt="Software Vala"
+              className="h-full w-full rounded-full object-cover"
+              draggable={false}
+            />
+          </span>
           <div className="min-w-0">
             <div className="text-sm font-bold tracking-tight leading-tight truncate">
               Software Vala<span className="text-[oklch(0.55_0.22_25)]">™</span>
@@ -41,16 +46,20 @@ export function Sidebar({ role, activeModule, onSelectModule }: Props) {
         </div>
       </div>
 
-      <nav className="flex-1 overflow-y-auto scrollbar-thin px-3 py-4 space-y-6">
+      <nav className="flex-1 overflow-y-auto scrollbar-thin px-3 py-4 space-y-6" aria-label="Dashboard navigation">
         <Section title="Menu">
           <NavItem icon={Home} label="Dashboard" active={activeModule === null} onClick={() => onSelectModule(null)} />
           {isReseller && (
             <NavItem icon={Calculator} label="Pricing Engine" active={activeModule === "pricing"} onClick={() => onSelectModule("pricing")} accent />
           )}
           <NavItem icon={Sparkles} label="AI Chat" active={activeModule === "ai-chat"} onClick={() => onSelectModule("ai-chat")} accent />
-          <NavItem icon={Compass} label="Explore" />
-          <NavItem icon={Layers} label="Marketplace" />
-          <NavItem icon={FolderOpen} label="Library" />
+          <NavItem icon={Compass} label="Explore" onClick={() => navigate({ to: "/" })} />
+          <NavItem icon={Layers} label="Marketplace" onClick={() => navigate({ to: "/" })} />
+          <NavItem
+            icon={FolderOpen}
+            label="Library"
+            onClick={() => onSelectModule(role.modules[0]?.key ?? null)}
+          />
         </Section>
 
         <Section title={`${role.name} Modules`}>
@@ -84,8 +93,24 @@ export function Sidebar({ role, activeModule, onSelectModule }: Props) {
         )}
 
         <Section title="Account">
-          <NavItem icon={Settings} label="Settings" />
-          <NavItem icon={LifeBuoy} label="Support" />
+          <NavItem
+            icon={Settings}
+            label="Settings"
+            onClick={() =>
+              onSelectModule(
+                role.modules.find((m) => /setting|config|profile/i.test(m.label))?.key ?? null,
+              )
+            }
+          />
+          <NavItem
+            icon={LifeBuoy}
+            label="Support"
+            onClick={() =>
+              onSelectModule(
+                role.modules.find((m) => /support|ticket|help/i.test(m.label))?.key ?? "ai-chat",
+              )
+            }
+          />
           <NavItem icon={LogOut} label="Logout" onClick={handleLogout} />
         </Section>
       </nav>
@@ -94,7 +119,11 @@ export function Sidebar({ role, activeModule, onSelectModule }: Props) {
         <div className="text-xs uppercase tracking-wider opacity-80">Upgrade</div>
         <div className="mt-1 font-semibold">Go Pro</div>
         <p className="mt-1 text-xs opacity-80">Unlock advanced analytics & AI tools.</p>
-        <button className="mt-3 w-full rounded-lg bg-white/15 hover:bg-white/25 transition text-xs font-medium py-2">
+        <button
+          type="button"
+          onClick={() => notifyPending("Upgrade to Pro", "Plan upgrades run through your existing Software Vala billing account.")}
+          className="press-3d focus-ring mt-3 w-full rounded-lg bg-white/15 hover:bg-white/25 transition text-xs font-medium py-2"
+        >
           Upgrade now
         </button>
       </div>
@@ -103,11 +132,14 @@ export function Sidebar({ role, activeModule, onSelectModule }: Props) {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const id = `sv-nav-${title.replace(/\s+/g, "-").toLowerCase()}`;
   return (
-    <div>
-      <div className="px-3 pb-2 text-[10px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">{title}</div>
+    <section aria-labelledby={id}>
+      <h2 id={id} className="px-3 pb-2 text-[10px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+        {title}
+      </h2>
       <div className="space-y-1">{children}</div>
-    </div>
+    </section>
   );
 }
 
@@ -116,20 +148,24 @@ function NavItem({
 }: { icon: any; label: string; active?: boolean; onClick?: () => void; accent?: boolean }) {
   return (
     <button
+      type="button"
       onClick={onClick}
+      aria-current={active ? "page" : undefined}
       className={cn(
-        "group flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition",
+        "group press-3d sheen-3d focus-ring flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition",
         active
-          ? "bg-brand text-brand-foreground shadow-glow"
+          ? "bg-gradient-brand text-brand-foreground shadow-glow"
           : accent
-            ? "text-foreground bg-brand/10 hover:bg-brand/20"
+            ? "text-foreground bg-brand/10 hover:bg-brand/20 border border-brand/20"
             : "text-sidebar-foreground/80 hover:bg-white/5 hover:text-foreground"
       )}
     >
-      <Icon className="h-4 w-4 shrink-0" />
+      <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
       <span className="truncate">{label}</span>
-      {accent && !active && <Sparkles className="ml-auto h-3 w-3 text-[oklch(0.78_0.18_290)]" />}
-      {active && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-white" />}
+      {accent && !active && <Sparkles className="ml-auto h-3 w-3 text-[oklch(0.78_0.18_290)]" aria-hidden="true" />}
+      {active && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-white" aria-hidden="true" />}
     </button>
   );
 }
+
+export const Sidebar = memo(SidebarBase) as typeof SidebarBase;
